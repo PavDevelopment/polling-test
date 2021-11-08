@@ -1,0 +1,27 @@
+<section class="notification-popover">
+  <div ngbDropdown class="d-inline-block" (openChange)="isOpen = !isOpen">
+    <section class="notification-menu-item">
+      <div class="icon" id="bell" id="notificationsMenu" ngbDropdownToggle>
+        <img src="{{notificationIconUrl}}" alt="" />
+        <span class="badge bg-secondary">{{ notifications.length }}</span>
+      </div>
+    </section>
+    <section>
+      <div ngbDropdownMenu aria-labelledby="notificationsMenu">
+        <div class="notifications" id="box" *ngIf="isOpen" [@fadeInOnEnter]>
+          <div
+            class="notifications-item"
+            *ngFor="let notification of notifications"
+            (click)="onNotificationClick(notification)"
+          >
+            <img src="{{notificationPopupIconUrl}}" alt="img" />
+            <div class="text">
+              <h4>Random Notification</h4>
+              <p>{{ notification }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

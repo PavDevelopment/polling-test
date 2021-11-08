@@ -1,24 +1,6 @@
 <nav ngbDropdown>
   <div class="logo">Reports Scheduler</div>
-  <div class="icon" id="bell" id="dropdownForm1" ngbDropdownToggle>
-    <img src="https://i.imgur.com/AC7dgLA.png" alt="" />
-    <span class="badge bg-secondary">{{notifications.length}}</span>
-  </div>
-  <div ngbDropdownMenu aria-labelledby="dropdownForm1">
-    <div class="notifications" id="box">
-      <h2>Jokes <span>{{notifications.length}}</span></h2>
-      <div
-        class="notifications-item"
-        *ngFor="let notification of notifications"
-      >
-        <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
-        <div class="text">
-          <h4>Random Joke</h4>
-          <p>{{ notification }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-notification-popover [notifications]="notifications" (notificationClicked)="handleNotificationClick($event)"></app-notification-popover>
 </nav>
 
 Reports Scheduler
